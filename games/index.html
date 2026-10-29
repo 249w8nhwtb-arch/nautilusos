@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XBOX VAULT — Every game, one shelf</title>
+  <meta name="description" content="Browse a huge catalog of Xbox games — Fortnite, Call of Duty, VALORANT, Rainbow Six Siege, Halo, Forza and hundreds more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="hero-ring" aria-hidden="true"></div>
+    <p class="eyebrow"><span class="dot"></span> Catalog online · <span id="total">0</span> titles</p>
+    <h1>XBOX<br /><em>VAULT</em></h1>
+    <p class="lede">Every big Xbox game on one shelf. Battle royales, shooters, racers, RPGs, indies — search it, filter it, find your next match.</p>
+    <div class="hero-actions">
+      <a href="#library" class="btn btn-primary">Browse library</a>
+      <button type="button" class="btn btn-ghost" id="random">🎲 Pick a random game</button>
+    </div>
+    <ul class="marquee" aria-label="Featured games">
+      <li>Fortnite</li><li>Call of Duty</li><li>VALORANT</li><li>Rainbow Six Siege</li><li>Halo Infinite</li><li>Apex Legends</li><li>Forza Horizon 5</li><li>Minecraft</li><li>Rocket League</li><li>Overwatch 2</li>
+    </ul>
+  </header>
+
+  <main id="library">
+    <section class="controls" aria-label="Filters">
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="q" type="search" placeholder="Search games or publishers…" autocomplete="off" aria-label="Search games" />
+        <kbd>/</kbd>
+      </div>
+      <div class="row">
+        <label class="toggle"><input type="checkbox" id="free" /> <span>Free to play</span></label>
+        <label class="toggle"><input type="checkbox" id="first" /> <span>Xbox Studios · Game Pass</span></label>
+        <label class="toggle"><input type="checkbox" id="favs" /> <span>★ Favorites</span></label>
+        <select id="sort" aria-label="Sort games">
+          <option value="az">A → Z</option>
+          <option value="za">Z → A</option>
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+        </select>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Genres"></div>
+    </section>
+
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>
+      <div class="empty-icon">⌀</div>
+      <h2>No games match that</h2>
+      <p>Try a different search or clear your filters.</p>
+      <button type="button" class="btn btn-ghost" id="reset">Clear filters</button>
+    </div>
+  </main>
+
+  <dialog id="modal">
+    <div class="modal-art" id="m-art"></div>
+    <div class="modal-body">
+      <p class="modal-meta" id="m-meta"></p>
+      <h2 id="m-title"></h2>
+      <div class="modal-tags" id="m-tags"></div>
+      <div class="modal-actions">
+        <a class="btn btn-primary" id="m-store" target="_blank" rel="noopener">View on Xbox.com ↗</a>
+        <button type="button" class="btn btn-ghost" id="m-fav"></button>
+      </div>
+    </div>
+    <button type="button" class="close" id="m-close" aria-label="Close">✕</button>
+  </dialog>
+
+  <footer>
+    <p>Fan-made catalog. Not affiliated with Microsoft or Xbox. Game names and trademarks belong to their owners. Availability and Game Pass status can change — check Xbox.com.</p>
+    <a href="/">← Back to NautilusOS</a>
+  </footer>
+
+  <script src="games.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
